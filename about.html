@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About InTeen</title>
+
+    <!-- Primary Color Scheme -->
+    <style>
+        :root {
+            --primary: #17153B;
+            --secondary: #2E236C;
+            --accent: #C8ACD6;
+            --light: #F5EFED;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background-color: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        .section {
+            padding: 80px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .text-box {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-top: 40px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* Image styling */
+        .image-box {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-box img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 16px;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        /* Scroll animation */
+        .show {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Founder note styling */
+        .founder-note {
+            background: white;
+            padding: 50px 10%;
+            margin: 60px 0;
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ABOUT SECTION -->
+    <section class="section">
+        <div class="text-box">
+            <h1>About Us</h1>
+            <p>
+                InTeen was created with one purpose in mind — to provide high-schoolers with real, practical exposure to the startup world. 
+                We wanted to build a bridge connecting ambitious teens with early-stage founders who value enthusiasm, creativity, and a fresh perspective.
+            </p>
+        </div>
+
+        <!-- Image beside About Us -->
+        <div class="image-box">
+            <img src="https://i.ibb.co/5XNjgRJx/Screenshot-2025-05-11-191337.png" alt="About InTeen" id="about-img">
+        </div>
+    </section>
+
+    <!-- OUR VISION -->
+    <section class="section">
+        <div class="text-box">
+            <h2>Our Vision</h2>
+            <p>
+                To help young students explore, grow, and express themselves through meaningful, real-world opportunities — long before they step into college or the workforce.
+            </p>
+        </div>
+    </section>
+
+    <!-- OUR MISSION -->
+    <section class="section">
+        <div class="text-box">
+            <h2>Our Mission</h2>
+            <p>
+                We aim to create an inclusive and accessible space where teens can discover internships, build confidence, collaborate with founders, and gain hands-on experience that sparks curiosity and long-term growth.
+            </p>
+        </div>
+    </section>
+
+    <!-- NOTE FROM FOUNDERS -->
+    <div class="founder-note">
+        <h2>Note from the Founders</h2>
+        <p>
+            As high school students ourselves, we know how confusing—and sometimes intimidating—it can feel to start exploring opportunities beyond academics.
+            InTeen was born from the same excitement and uncertainty we felt. We wanted to make the journey easier, warmer, and more accessible for students like us.
+            Our hope is simple: that InTeen becomes the platform we wish we had when we first began searching for meaningful experiences.
+        </p>
+        <p style="margin-top: 25px; font-weight: 600;">
+            ~ Ridima Gupta & Iha Jain, Co-Founders, InTeen
+        </p>
+    </div>
+
+    <!-- Scroll animation JS -->
+    <script>
+        const img = document.getElementById("about-img");
+        window.addEventListener("scroll", () => {
+            const rect = img.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                img.classList.add("show");
+            }
+        });
+    </script>
+
+</body>
+</html>
