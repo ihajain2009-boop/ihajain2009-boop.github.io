@@ -1,148 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us - InTeen</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - InTeen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0f19;
-      color: #e5e7eb;
-    }
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background-color: #0a0f2d;
+            color: #ffffff;
+            line-height: 1.6;
+        }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .section {
-      margin-bottom: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 50px;
-      flex-wrap: wrap;
-    }
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+            padding: 20px 0;
+            border-bottom: 1px solid #1e293b;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    .text {
-      flex: 1;
-      min-width: 280px;
-    }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    h1, h2 {
-      font-weight: 800;
-      background: linear-gradient(to right, #0ea5e9, #7c3aed);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff 0%, #0077ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
 
-    h2 {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #cbd5e1;
-    }
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
 
-    img {
-      width: 420px;
-      border-radius: 20px;
-      box-shadow: none;
-    }
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.8) 100%);
+            margin-bottom: 80px;
+        }
 
-    .founder-note {
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.04);
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 20px;
-    }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff 0%, #0077ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
 
-    .founder-sign {
-      margin-top: 20px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #94a3b8;
-    }
-  </style>
+        .hero p {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #0077ff, #00d4ff);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid #1e293b;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+        }
+
+        .content-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #00d4ff;
+        }
+
+        .content-card p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        /* Founders' Note Section */
+        .founders-note {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
+            padding: 60px 50px;
+            border-radius: 20px;
+            border: 1px solid #1e293b;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .founders-note::before {
+            content: '"';
+            font-size: 8rem;
+            color: #0077ff;
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            font-family: serif;
+        }
+
+        .founder-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .founder-content p {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .founder-signature {
+            text-align: right;
+            margin-top: 40px;
+        }
+
+        .founder-name {
+            color: #00d4ff;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .founder-role {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        /* Student Founders Section */
+        .student-founders {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .student-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #0077ff, #00d4ff);
+            color: #0a0f2d;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .founders-intro {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+            padding: 60px 0 30px;
+            border-top: 1px solid #1e293b;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #94a3b8;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #00d4ff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .content-card {
+                padding: 30px 25px;
+            }
+
+            .founders-note {
+                padding: 40px 30px;
+            }
+
+            .founders-note::before {
+                font-size: 5rem;
+                top: 10px;
+                left: 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .section {
+                margin-bottom: 60px;
+            }
+
+            .founders-note {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-  <div class="container">
-
-    <!-- ABOUT US -->
-    <div class="section">
-      <div class="text">
-        <h1>About Us</h1>
-        <p>
-          InTeen is a non-profit organisation dedicated to providing meaningful internship opportunities to high school students across India. In a country where academic achievement often dominates focus, real-world exposure can be rare. We bridge that gap by connecting motivated teens with companies and startups ready to mentor and include them — creating pathways for practical learning, confidence, and career clarity.
-        </p>
-      </div>
-
-      <img src="https://image2url.com/images/1763140746427-5a4bd9f7-4373-418b-9108-2435380bff5b.jpeg" alt="About Us Image" />
-    </div>
-
-    <!-- OUR VISION -->
-    <div class="section">
-      <img src="https://image2url.com/images/1763140350077-b49c205e-8029-42bb-a76c-f9318f259b1a.jpeg" alt="Vision Image" />
-      <div class="text">
-        <h2>Our Vision</h2>
-        <p>
-          We envision an India where every teenager — regardless of background — can access real-world learning experiences that shape their future.
-          InTeen aims to normalize early internships, spark curiosity, and empower students to explore career paths with confidence.
-        </p>
-      </div>
-    </div>
-
-    <!-- OUR MISSION -->
-    <div class="section">
-      <div class="text">
-        <h2>Our Mission</h2>
-        <p>
-          InTeen serves as a bridge between India’s young minds and the startup ecosystem. By providing early exposure to workplaces, we aim to help
-          teenagers discover their interests, build real skills, and grow into future-ready individuals.
-        </p>
-      </div>
-      <img src="https://image2url.com/images/1763140940552-cb8bceca-1d54-4f7e-951a-597fc09dd011.jpeg" alt="Mission Image" />
-    </div>
-
-    <!-- NOTE FROM FOUNDERS -->
-    <div class="section">
-      <div class="text">
-        <h2>Note From the Founders</h2>
-        <div class="founder-note">
-          <p>
-            When we started InTeen, we knew exactly what it felt like to be high-school students searching for real opportunities. As teens ourselves,
-            we understand the frustration of wanting to learn, grow, and gain experience — but having nowhere to start. This platform was created so students
-            like us could finally have a place to explore careers, take initiative, and discover what they’re truly capable of.
-          </p>
-          <p>
-            We hope InTeen becomes the first step in your journey — the one that opens doors, builds confidence, and shapes your future in ways that classrooms
-            alone cannot.
-          </p>
-
-          <div class="founder-sign">
-            ~ Ridima Gupta & Iha Jain<br />
-            Co-Founders, InTeen
-          </div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">InTeen</div>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#">Categories</a>
+                    <a href="#">Internships</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                </div>
+            </nav>
         </div>
-      </div>
-    </div>
+    </header>
 
-  </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>About InTeen</h1>
+            <p>Bridging the gap between ambitious students and forward-thinking companies</p>
+            <div class="student-founders">
+                <div class="student-badge">Founded by Students, For Students</div>
+                <p class="founders-intro">Created by high school students who understand the challenges of finding meaningful opportunities</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- Mission Section -->
+    <section class="container section">
+        <h2 class="section-title">Our Mission</h2>
+        <div class="content-card">
+            <p>InTeen was born from our own experiences as high school students - the frustration of seeing talented peers struggle to find internship opportunities while companies missed out on the incredible potential we know students possess.</p>
+            
+            <p>We're on a mission to transform how students and companies connect. As students ourselves, we understand what our generation needs - real opportunities to learn, grow, and make an impact. We're building bridges that lead to mutual growth and success.</p>
+            
+            <p>Our vision is a world where every student has access to quality internship experiences that shape their future, and every company can easily discover and nurture the talent that will drive their innovation forward.</p>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="container section">
+        <h2 class="section-title">What We Do</h2>
+        <div class="content-card">
+            <h3>For Students</h3>
+            <p>We provide a platform built by students, for students. From 9th grade to 2nd year college, we help you discover internship opportunities that actually match your skills and interests. No more generic applications - we connect you with companies that value your unique perspective.</p>
+            
+            <h3>For Companies</h3>
+            <p>We help companies tap into the incredible potential of student talent. As digital natives with fresh perspectives, we bring energy and innovation to your organization. We make it easy to find motivated interns who can grow with your company.</p>
+            
+            <h3>Our Approach</h3>
+            <p>Unlike traditional internship platforms, InTeen is built by students who understand what both sides really need. We specialize in connecting companies with school and early college students because we believe in the power of young minds to drive real change.</p>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="container section">
+        <h2 class="section-title">Why Choose InTeen</h2>
+        <div class="content-card">
+            <h3>Student-Led Understanding</h3>
+            <p>We're students ourselves, so we understand the challenges, aspirations, and potential of our generation better than anyone.</p>
+            
+            <h3>Real Connections</h3>
+            <p>We focus on creating meaningful matches based on shared interests and genuine compatibility, not just filling positions.</p>
+            
+            <h3>Future-Focused</h3>
+            <p>We're building the workforce of tomorrow by creating opportunities that matter today. Every internship is a step toward a brighter future.</p>
+            
+            <h3>Community Driven</h3>
+            <p>This isn't just a platform - it's a movement. We're creating a community where students support each other and grow together.</p>
+        </div>
+    </section>
+
+    <!-- Founders' Note Section -->
+    <section class="container section">
+        <h2 class="section-title">From The Founders</h2>
+        <div class="founders-note">
+            <div class="founder-content">
+                <p>As high school students navigating our own academic journeys, we kept hitting the same wall - the incredible gap between the talent we saw in our peers and the opportunities available to us. We watched brilliant friends with amazing ideas struggle to find platforms that took them seriously.</p>
+                
+                <p>InTeen started as a conversation between two friends who believed we could do better. We knew that students our age have so much to offer - fresh perspectives, digital fluency, and passion that can't be taught. We also knew that companies were missing out on this incredible resource.</p>
+                
+                <p>So we decided to build the solution ourselves. A platform where students aren't just applicants, but valued partners in innovation. Where companies can discover the next generation of thinkers, creators, and leaders.</p>
+                
+                <p>This is more than just a website to us - it's our commitment to creating the opportunities we wish we'd had. We're building this for every student who's ever been told "you're too young" or "wait your turn." Your time is now.</p>
+                
+                <p>Join us in creating a future where age is never a barrier to making an impact.</p>
+                
+                <div class="founder-signature">
+                    <div class="founder-name">~ Ridima Gupta & Iha Jain</div>
+                    <div class="founder-role">Co-Founders, InTeen</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>InTeen</h4>
+                    <p>Dream. Build. Grow.</p>
+                    <p>By students, for students. Creating opportunities that matter.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 InTeen. All rights reserved. | Dream. Build. Grow.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
